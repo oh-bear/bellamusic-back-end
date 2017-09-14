@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="/semantic/dist/semantic.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<a href="/banner/add">添加</a>
+<table class="ui selectable celled table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>标题</th>
+        <th>排名权重</th>
+        <th>URL</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for (var i = 0; i < banners.length; i++) { %>
+    <tr>
+        <td><a href="/banner/show/<%= banners[i].id %>"><%= banners[i].id %></a></td>
+        <td><%= banners[i].title %></td>
+        <td><%= banners[i].seq %></td>
+        <td><%= banners[i].url %></td>
+    </tr>
+    <% } %>
+    </tbody>
+</table>
+</body>
+</html>

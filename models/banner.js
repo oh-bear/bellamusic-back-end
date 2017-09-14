@@ -4,19 +4,19 @@ module.exports = function (sequelize, DataTypes) {
     {
       'seq': {
         'type': DataTypes.INTEGER,
-        'allowNull': false
+        'allowNull': true
       },
       'title': {
         'type': DataTypes.STRING(45),
-        'allowNull': false
+        'allowNull': true
       },
       'image': {
-        'type': DataTypes.STRING(45),
-        'allowNull': false
+        'type': DataTypes.STRING(125),
+        'allowNull': true
       },
       'url': {
-        'type': DataTypes.INTEGER,
-        'allowNull': false
+        'type': DataTypes.STRING(125),
+        'allowNull': true
       }
     }
   );

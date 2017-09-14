@@ -39,7 +39,7 @@ module.exports = function (sequelize, DataTypes) {
         'allowNull': true
       },
       'sheetId': {
-        type: DataTypes.BIGINT(11),
+        type: DataTypes.INTEGER,
         field: 'sheet_id',
         unique: true,
         references: {
