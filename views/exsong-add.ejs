@@ -13,6 +13,13 @@
 <body>
 <h1>12音乐盒录入系统</h1>
 <h2><%= title %></h2>
+<div class="ui breadcrumb">
+    <a class="section" href="/">Home</a>
+    <i class="right chevron icon divider"></i>
+    <a class="section" href="/exsong">ExSong</a>
+    <i class="right arrow icon divider"></i>
+    <div class="active section">Add ExSong</div>
+</div>
 <form class="ui form" action="/add_exsong" method="post">
     <div class="field">
         <label>类型</label>
@@ -24,34 +31,33 @@
     </div>
     <div class="field">
         <label>歌曲名</label>
-        <input type="text" name="name" id="name" value="<%= exsong.name %>">
+        <input type="text" name="name" id="name">
     </div>
-    <!--<div class="field">-->
-        <!--<label>封面</label>-->
-        <!--<input type="file" name="cover" id="cover">-->
-    <!--</div>-->
+    <div class="field">
+        <label>封面</label>
+        <input type="file" name="cover" id="cover">
+    </div>
     <div class="field">
         <label>演唱者</label>
-        <input type="text" name="singer" id="singer" value="<%= exsong.singer %>">
+        <input type="text" name="singer" id="singer">
     </div>
     <div class="field">
         <label>歌曲描述</label>
-        <input type="text" name="description" id="description" value="<%= exsong.description %>">
+        <input type="text" name="description" id="description">
     </div>
     <div class="field">
         <label>歌词</label>
-        <input type="text" name="lyrics" id="lyrics" value="<%= exsong.lyrics %>">
+        <input type="text" name="lyrics" id="lyrics">
     </div>
     <div class="field">
         <label>音频地址</label>
-        <input type="text" name="url" id="url" value="<%= exsong.url %>">
+        <input type="text" name="url" id="url">
     </div>
     <div class="field">
         <label>备份地址</label>
-        <input type="text" name="url2" id="url2" value="<%= exsong.url2 %>">
+        <input type="text" name="url2" id="url2">
     </div>
-    <div class="ui primary submit button">提交</div>
-    <a class="ui negative button" href="/exsong/remove/<%= exsong.id %>">删除</a>
+    <div class="ui primary submit button">更新</div>
     <div class="ui error message"></div>
 </form>
 </body>

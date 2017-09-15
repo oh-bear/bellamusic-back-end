@@ -13,6 +13,13 @@
 <body>
 <h1>12音乐盒录入系统</h1>
 <h2><%= title %></h2>
+<div class="ui breadcrumb">
+    <a class="section" href="/">Home</a>
+    <i class="right chevron icon divider"></i>
+    <a class="section" href="/banner">Banner</a>
+    <i class="right arrow icon divider"></i>
+    <div class="active section">Banner Detail</div>
+</div>
 <form class="ui form" action="/update/<%= banner.id %>" method="post">
     <div class="field">
         <label>标题</label>

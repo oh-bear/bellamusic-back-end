@@ -11,7 +11,15 @@
     <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
-<a class="ui primary button" href="/exsong/add">添加</a>
+<h1>12音乐盒录入系统</h1>
+<h2><%= title %></h2>
+<div class="ui breadcrumb">
+    <a class="section" href="/">Home</a>
+    <i class="right chevron icon divider"></i>
+    <a class="section" href="/exsong">ExSong</a>
+    <i class="right arrow icon divider"></i>
+    <div class="active section">ExSong List</div>
+</div>
 <table class="ui selectable celled table">
     <thead>
     <tr>
@@ -42,5 +50,6 @@
     <% } %>
     </tbody>
 </table>
+<a class="ui primary button" href="/exsong/add">添加</a>
 </body>
 </html>

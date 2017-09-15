@@ -21,7 +21,7 @@ router.get('/show/:id', function (req, res, next) {
     res.render('song-detail',
       {
         title: '歌曲管理',
-        banner: song
+        song: song
       });
   });
 });

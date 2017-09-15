@@ -13,6 +13,13 @@
 <body>
 <h1>12音乐盒录入系统</h1>
 <h2><%= title %></h2>
+<div class="ui breadcrumb">
+    <a class="section" href="/">Home</a>
+    <i class="right chevron icon divider"></i>
+    <a class="section" href="/song">Song</a>
+    <i class="right arrow icon divider"></i>
+    <div class="active section">Song Detail</div>
+</div>
 <form class="ui form" action="/update/<%= song.id %>" method="post">
     <div class="field">
         <label>歌曲名</label>

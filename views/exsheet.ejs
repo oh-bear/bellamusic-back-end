@@ -16,35 +16,40 @@
 <div class="ui breadcrumb">
     <a class="section" href="/">Home</a>
     <i class="right chevron icon divider"></i>
-    <a class="section" href="/song">Song</a>
+    <a class="section" href="/exsheet">ExSheet</a>
     <i class="right arrow icon divider"></i>
-    <div class="active section">Song List</div>
+    <div class="active section">ExSheet List</div>
 </div>
 <table class="ui selectable celled table">
     <thead>
     <tr>
         <th>ID</th>
-        <th>歌曲名</th>
-        <th>歌曲封面</th>
-        <th>收录专辑</th>
-        <th>lyrics</th>
-        <th>娜网播放链接</th>
-        <th>七牛云链接</th>
+        <th>网易云歌单id</th>
+        <th>扩展id</th>
+        <th>排序权重</th>
+        <th>歌单类型</th>
+        <th>歌单名</th>
+        <th>封面图</th>
+        <th>歌单描述</th>
+        <th>歌曲id集合</th>
     </tr>
     </thead>
     <tbody>
-    <% for (var i = 0; i < songs.length; i++) { %>
+    <% for (var i = 0; i < exsheets.length; i++) { %>
     <tr>
-        <td><a href="/song/show/<%= songs[i].id %>"><%= songs[i].id %></a></td>
-        <td><%= songs[i].name %></td>
-        <td><%= songs[i].cover %></td>
-        <td><%= songs[i].album %></td>
-        <td><%= songs[i].lyrics %></td>
-        <td><%= songs[i].url %></td>
-        <td><%= songs[i].url2 %></td>
+        <td><a href="/sheet/show/<%= exsheets[i].id %>"><%= exsheets[i].id %></a></td>
+        <td><%= exsheets[i].wid %></td>
+        <td><%= exsheets[i].eid %></td>
+        <td><%= exsheets[i].seq %></td>
+        <td><%= exsheets[i].type %></td>
+        <td><%= exsheets[i].name %></td>
+        <td><%= exsheets[i].cover %></td>
+        <td><%= exsheets[i].description %></td>
+        <td><%= exsheets[i].song_ids %></td>
     </tr>
     <% } %>
     </tbody>
 </table>
+<a class="ui primary button" href="/exsheet/add">添加</a>
 </body>
 </html>
