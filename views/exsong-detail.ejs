@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="/semantic/dist/semantic.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1>12音乐盒录入系统</h1>
+<h2><%= title %></h2>
+<form class="ui form" action="/update/<%= exsong.id %>" method="post">
+    <div class="field">
+        <label>类型</label>
+        <select class="ui compact selection dropdown" name="type" id="type">
+            <option selected="" value="1">纪念歌曲</option>
+            <option value="2">电台歌曲</option>
+            <option value="3">翻唱歌曲</option>
+        </select>
+    </div>
+    <div class="field">
+        <label>歌曲名</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div class="field">
+        <label>封面</label>
+        <input type="file" name="cover" id="cover">
+    </div>
+    <div class="field">
+        <label>演唱者</label>
+        <input type="text" name="singer" id="singer">
+    </div>
+    <div class="field">
+        <label>歌曲描述</label>
+        <input type="text" name="description" id="description">
+    </div>
+    <div class="field">
+        <label>歌词</label>
+        <input type="text" name="lyrics" id="lyrics">
+    </div>
+    <div class="field">
+        <label>音频地址</label>
+        <input type="text" name="url" id="url">
+    </div>
+    <div class="field">
+        <label>备份地址</label>
+        <input type="text" name="url2" id="url2">
+    </div>
+    <div class="ui primary submit button">更新</div>
+    <a class="ui negative button" href="/banner/remove/<%= banner.id %>">删除</a>
+    <div class="ui error message"></div>
+</form>
+</body>
+</html>

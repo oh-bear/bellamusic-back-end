@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="/semantic/dist/semantic.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1>12音乐盒录入系统</h1>
+<h2><%= title %></h2>
+<form class="ui form" action="/update/<%= song.id %>" method="post">
+    <div class="field">
+        <label>歌曲名</label>
+        <input type="text" name="name" id="name" value="<%= song.name %>">
+    </div>
+    <div class="field">
+        <label>歌词</label>
+        <input type="text" name="lyrics" id="lyrics" value="<%= song.lyrics %>">
+    </div>
+    <div class="field">
+        <label>娜网播放链接</label>
+        <input type="text" name="url" id="url" value="<%= song.url %>">
+    </div>
+    <div class="field">
+        <label>七牛云链接</label>
+        <input type="text" name="url2" id="url2" value="<%= song.url2 %>">
+    </div>
+    <div class="ui primary submit button">更新</div>
+    <a class="ui negative button" href="/song/remove/<%= song.id %>">删除</a>
+    <div class="ui error message"></div>
+</form>
+</body>
+</html>

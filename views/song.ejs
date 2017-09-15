@@ -11,23 +11,28 @@
     <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
-<a class="ui primary button" href="/banner/add">添加</a>
 <table class="ui selectable celled table">
     <thead>
     <tr>
         <th>ID</th>
-        <th>标题</th>
-        <th>排名权重</th>
-        <th>URL</th>
+        <th>歌曲名</th>
+        <th>歌曲封面</th>
+        <th>收录专辑</th>
+        <th>lyrics</th>
+        <th>娜网播放链接</th>
+        <th>七牛云链接</th>
     </tr>
     </thead>
     <tbody>
-    <% for (var i = 0; i < banners.length; i++) { %>
+    <% for (var i = 0; i < songs.length; i++) { %>
     <tr>
-        <td><a href="/banner/show/<%= banners[i].id %>"><%= banners[i].id %></a></td>
-        <td><%= banners[i].title %></td>
-        <td><%= banners[i].seq %></td>
-        <td><%= banners[i].url %></td>
+        <td><a href="/song/show/<%= songs[i].id %>"><%= songs[i].id %></a></td>
+        <td><%= songs[i].name %></td>
+        <td><%= songs[i].cover %></td>
+        <td><%= songs[i].album %></td>
+        <td><%= songs[i].lyrics %></td>
+        <td><%= songs[i].url %></td>
+        <td><%= songs[i].url2 %></td>
     </tr>
     <% } %>
     </tbody>

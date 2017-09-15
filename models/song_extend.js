@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   return sequelize.define(
-    'song_info',
+    'song_extend',
     {
       'type': {
         'type': DataTypes.INTEGER,
@@ -37,22 +37,7 @@ module.exports = function (sequelize, DataTypes) {
       'timestamp': {
         'type': DataTypes.DOUBLE,
         'allowNull': true
-      },
-      'songId': {
-        type: DataTypes.INTEGER,
-        field: 'song_id',
-        unique: true,
-        references: {
-          model: 'song',
-          key: 'id'
-        }
       }
-    },{
-      indexes: [{
-        name: 'songInfo_songId',
-        method: 'BTREE',
-        fields: ['song_id']
-      }]
     }
   );
 };

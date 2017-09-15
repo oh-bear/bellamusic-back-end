@@ -26,6 +26,17 @@ router.get('/show/:id', function (req, res, next) {
   });
 });
 
+router.get('/remove/:id', function (req, res, next) {
+  Banner.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function () {
+    return res.json({code: 0, message: '删除成功'});
+  });
+});
+
+
 router.get('/add', function (req, res, next) {
   res.render('banner-add', {title: '首页横幅'});
 });
@@ -41,6 +52,26 @@ router.post('/add_banner', function (req, res, next) {
   };
   Banner.create(banner).then(function () {
     return res.json({code: 0, message: '录入成功'});
+  });
+});
+
+router.post('/update/:id', function (req, res, next) {
+  var id = req.params.id;
+  var title = req.body.title;
+  var seq = req.body.seq;
+  var url = req.body.url;
+  var banner = {
+    id: id,
+    title: title,
+    seq: seq,
+    url: url
+  };
+  Banner.update(banner, {
+    where: {
+      id: id
+    }
+  }).then(function () {
+    return res.json({code: 0, message: '更新成功'});
   });
 });
 

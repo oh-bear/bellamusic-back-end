@@ -2,7 +2,7 @@ module.exports = function (sequelize, DataTypes) {
   return sequelize.define(
     'song',
     {
-      'wid': {
+      'did': {
         'type': DataTypes.INTEGER,
         'allowNull': true
       },

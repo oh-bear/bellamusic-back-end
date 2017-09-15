@@ -7,8 +7,9 @@ var bodyParser = require('body-parser');
 var stylus = require('stylus');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var banner = require('./routes/banner');
+var song = require('./routes/song');
+var exsong = require('./routes/exsong');
 
 var app = express();
 
@@ -26,8 +27,9 @@ app.use(stylus.middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/banner', banner);
+app.use('/song', song);
+app.use('/exsong', exsong);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="/semantic/dist/semantic.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<a class="ui primary button" href="/exsong/add">添加</a>
+<table class="ui selectable celled table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>类型</th>
+        <th>歌曲名</th>
+        <th>封面</th>
+        <th>演唱者</th>
+        <th>歌曲描述</th>
+        <th>歌词</th>
+        <th>音频地址</th>
+        <th>备份地址</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for (var i = 0; i < exsongs.length; i++) { %>
+    <tr>
+        <td><a href="/exsong/show/<%= exsongs[i].id %>"><%= exsongs[i].id %></a></td>
+        <td><%= exsongs[i].type %></td>
+        <td><%= exsongs[i].name %></td>
+        <td><%= exsongs[i].cover %></td>
+        <td><%= exsongs[i].singer %></td>
+        <td><%= exsongs[i].description %></td>
+        <td><%= exsongs[i].lyrics %></td>
+        <td><%= exsongs[i].url %></td>
+        <td><%= exsongs[i].url2 %></td>
+    </tr>
+    <% } %>
+    </tbody>
+</table>
+</body>
+</html>

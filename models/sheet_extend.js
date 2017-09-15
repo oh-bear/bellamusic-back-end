@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   return sequelize.define(
-    'sheet_info',
+    'sheet_extend',
     {
       'wid': {
         'type': DataTypes.INTEGER,
@@ -37,22 +37,7 @@ module.exports = function (sequelize, DataTypes) {
       'timestamp': {
         'type': DataTypes.DOUBLE,
         'allowNull': true
-      },
-      'sheetId': {
-        type: DataTypes.INTEGER,
-        field: 'sheet_id',
-        unique: true,
-        references: {
-          model: 'sheet',
-          key: 'id'
-        }
       }
-    }, {
-      indexes: [{
-        name: 'sheetInfo_sheetId',
-        method: 'BTREE',
-        fields: ['sheet_id']
-      }]
     }
   );
 };

@@ -2,9 +2,75 @@
 <html>
 <head>
     <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="/semantic/dist/semantic.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
-Detail
-<input type="text" value="<%= banner.title %>">
+<h1>12音乐盒录入系统</h1>
+<h2><%= title %></h2>
+<form class="ui form" action="/update/<%= banner.id %>" method="post">
+    <div class="field">
+        <label>标题</label>
+        <input type="text" name="title" id="title" value="<%= banner.title %>">
+    </div>
+    <div class="field">
+        <label>排序权重</label>
+        <input type="text" name="seq" id="seq" value="<%= banner.seq %>">
+    </div>
+    <div class="field">
+        <label>URL</label>
+        <input type="text" name="url" id="url" value="<%= banner.url %>">
+    </div>
+    <!--<div class="field">-->
+        <!--<label>图片</label>-->
+        <!--<input type="file" name="image" id="image">-->
+    <!--</div>-->
+    <div class="ui primary submit button">更新</div>
+    <a class="ui negative button" href="/banner/remove/<%= banner.id %>">删除</a>
+    <div class="ui error message"></div>
+</form>
+<script>
+  $('.ui.form')
+    .form({
+      fields: {
+        title: {
+          identifier: 'title',
+          rules: [
+            {
+              type: 'empty',
+              prompt: '请输入标题！'
+            }
+          ]
+        },
+        seq: {
+          identifier: 'seq',
+          rules: [
+            {
+              type: 'empty',
+              prompt: '请输入数字权重！'
+            },
+            {
+              type: 'number',
+              prompt: '请输入数字权重！'
+            }
+          ]
+        },
+        url: {
+          identifier: 'url',
+          rules: [
+            {
+              type: 'url',
+              prompt: '请输入合法的url！'
+            }
+          ]
+        }
+      }
+    });
+</script>
 </body>
 </html>
