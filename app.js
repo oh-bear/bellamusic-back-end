@@ -6,10 +6,16 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
 
+var basicAuth = require("basic-auth");
+var ADMIN = require('./config').ADMIN;
+var PASSWORD = require('./config').PASSWORD;
+
 var index = require('./routes/index');
 var banner = require('./routes/banner');
 var song = require('./routes/song');
 var exsong = require('./routes/exsong');
+var sheet = require('./routes/sheet');
+var exsheet = require('./routes/exsheet');
 
 var app = express();
 
@@ -26,10 +32,39 @@ app.use(cookieParser());
 app.use(stylus.middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+var auth = function(req, resp, next) {
+  function unauthorized(resp) {
+    resp.set('WWW-Authenticate', 'Basic realm=Input User&Password');
+    return resp.sendStatus(401);
+  }
+
+  var user = basicAuth(req);
+
+  if (!user || !user.name || !user.pass) {
+    return unauthorized(resp);
+  }
+
+  if (user.name === ADMIN && user.pass === PASSWORD) {
+    return next();
+  } else {
+    return unauthorized(resp);
+  }
+};
+
+app.post('*', auth, function(req, resp,next) {
+  next()
+});
+
+app.get('*', auth, function(req, resp,next) {
+  next()
+});
+
 app.use('/', index);
 app.use('/banner', banner);
 app.use('/song', song);
 app.use('/exsong', exsong);
+app.use('/sheet', sheet);
+app.use('/exsheet', exsheet);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -48,5 +83,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
