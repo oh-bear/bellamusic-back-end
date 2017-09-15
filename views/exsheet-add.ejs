@@ -20,7 +20,7 @@
     <i class="right arrow icon divider"></i>
     <div class="active section">Add ExSheet</div>
 </div>
-<form class="ui form" action="/add_exsheet" method="post">
+<form class="ui form" action="/exsheet/add_exsheet" method="post">
     <div class="field">
         <label>网易云歌单id</label>
         <input type="text" name="wid" id="wid">
@@ -60,5 +60,36 @@
     <div class="ui primary submit button">提交</div>
     <div class="ui error message"></div>
 </form>
+<script>
+  $('.ui.form')
+    .form({
+      fields: {
+        wid: {
+          identifier: 'wid'
+        },
+        eid: {
+          identifier: 'eid'
+        },
+        seq: {
+          identifier: 'seq'
+        },
+        type: {
+          identifier: 'type'
+        },
+        name: {
+          identifier: 'name'
+        },
+        cover: {
+          identifier: 'cover'
+        },
+        description: {
+          identifier: 'description'
+        },
+        song_ids: {
+          identifier: 'song_ids'
+        }
+      }
+    });
+</script>
 </body>
 </html>

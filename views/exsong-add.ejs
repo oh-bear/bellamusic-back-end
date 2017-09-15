@@ -20,7 +20,7 @@
     <i class="right arrow icon divider"></i>
     <div class="active section">Add ExSong</div>
 </div>
-<form class="ui form" action="/add_exsong" method="post">
+<form class="ui form" action="/exsong/add_exsong" method="post">
     <div class="field">
         <label>类型</label>
         <select class="ui compact selection dropdown" name="type" id="type">
@@ -57,8 +57,39 @@
         <label>备份地址</label>
         <input type="text" name="url2" id="url2">
     </div>
-    <div class="ui primary submit button">更新</div>
+    <div class="ui primary submit button">提交</div>
     <div class="ui error message"></div>
 </form>
+<script>
+  $('.ui.form')
+    .form({
+      fields: {
+        type: {
+          identifier: 'type'
+        },
+        name: {
+          identifier: 'name'
+        },
+        cover: {
+          identifier: 'cover'
+        },
+        singer: {
+          identifier: 'singer'
+        },
+        description: {
+          identifier: 'description'
+        },
+        lyrics: {
+          identifier: 'lyrics'
+        },
+        url: {
+          identifier: 'url'
+        },
+        url2: {
+          identifier: 'url2'
+        }
+      }
+    });
+</script>
 </body>
 </html>

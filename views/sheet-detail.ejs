@@ -20,7 +20,7 @@
     <i class="right arrow icon divider"></i>
     <div class="active section">Sheet Detail</div>
 </div>
-<form class="ui form" action="/update/<%= sheet.id %>" method="post">
+<form class="ui form" action="/sheet/update/<%= sheet.id %>" method="post">
     <div class="field">
         <label>网易云歌单id</label>
         <input type="text" name="wid" id="wid" value="<%= sheet.wid %>">
@@ -56,5 +56,33 @@
     <a class="ui negative button" href="/sheet/remove/<%= sheet.id %>">删除</a>
     <div class="ui error message"></div>
 </form>
+<script>
+  $('.ui.form')
+    .form({
+      fields: {
+        wid: {
+          identifier: 'wid'
+        },
+        seq: {
+          identifier: 'seq'
+        },
+        type: {
+          identifier: 'type'
+        },
+        name: {
+          identifier: 'name'
+        },
+        cover: {
+          identifier: 'cover'
+        },
+        description: {
+          identifier: 'description'
+        },
+        song_ids: {
+          identifier: 'song_ids'
+        }
+      }
+    });
+</script>
 </body>
 </html>

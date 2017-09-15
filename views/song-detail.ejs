@@ -20,7 +20,7 @@
     <i class="right arrow icon divider"></i>
     <div class="active section">Song Detail</div>
 </div>
-<form class="ui form" action="/update/<%= song.id %>" method="post">
+<form class="ui form" action="/song/update/<%= song.id %>" method="post">
     <div class="field">
         <label>歌曲名</label>
         <input type="text" name="name" id="name" value="<%= song.name %>">
@@ -41,5 +41,24 @@
     <a class="ui negative button" href="/song/remove/<%= song.id %>">删除</a>
     <div class="ui error message"></div>
 </form>
+<script>
+  $('.ui.form')
+    .form({
+      fields: {
+        name: {
+          identifier: 'name'
+        },
+        lyrics: {
+          identifier: 'lyrics'
+        },
+        url: {
+          identifier: 'url'
+        },
+        url2: {
+          identifier: 'url2'
+        }
+      }
+    });
+</script>
 </body>
 </html>
